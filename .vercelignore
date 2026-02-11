@@ -1,0 +1,7 @@
+server.py
+update_chapters.py
+__pycache__
+*.pyc
+.git
+.gitignore
+README.md

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keyboard Shortcuts - Physical AI Textbook</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .shortcuts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .shortcut-card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            border-left: 4px solid #667eea;
+        }
+        
+        .shortcut-key {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-family: monospace;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        .shortcut-desc {
+            color: #5a6c7d;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="progress-container">
+        <div id="progressBar"></div>
+    </div>
+    
+    <button id="chatButton" onclick="toggleChat()">🤖 AI Assistant</button>
+    
+    <div id="chatWindow">
+        <div class="chat-header">
+            <span>🤖</span>
+            <span>AI Learning Assistant</span>
+        </div>
+        <div id="chatMessages"></div>
+        <div class="chat-input-area">
+            <input type="text" id="chatInput" placeholder="Ask me anything...">
+            <button id="sendButton" onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+    
+    <nav class="sidebar">
+        <h2>Contents</h2>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="workflow.html">📊 Learning Workflow</a></li>
+            <li><a href="demo.html">🎬 Feature Demo</a></li>
+            <li><a href="shortcuts.html">⌨️ Keyboard Shortcuts</a></li>
+            <li><a href="chapters/chapter1.html">Chapter 1</a></li>
+            <li><a href="chapters/chapter2.html">Chapter 2</a></li>
+            <li><a href="chapters/chapter3.html">Chapter 3</a></li>
+            <li><a href="chapters/chapter4.html">Chapter 4</a></li>
+            <li><a href="chapters/chapter5.html">Chapter 5</a></li>
+            <li><a href="chapters/chapter6.html">Chapter 6</a></li>
+            <li><a href="chapters/chapter7.html">Chapter 7</a></li>
+            <li><a href="chapters/chapter8.html">Chapter 8</a></li>
+            <li><a href="chapters/chapter9.html">Chapter 9</a></li>
+            <li><a href="chapters/chapter10.html">Chapter 10</a></li>
+            <li><a href="history/timeline.html">History Timeline</a></li>
+        </ul>
+    </nav>
+    
+    <main class="content">
+        <header>
+            <h1>⌨️ Keyboard Shortcuts</h1>
+            <p class="subtitle">Navigate Faster with Keyboard Commands</p>
+        </header>
+        
+        <div class="chapter-content">
+            <h2>Essential Shortcuts</h2>
+            
+            <div class="shortcuts-grid">
+                <div class="shortcut-card">
+                    <span class="shortcut-key">Alt + A</span>
+                    <h3>Toggle AI Assistant</h3>
+                    <p class="shortcut-desc">Open or close the AI chatbot instantly</p>
+                </div>
+                
+                <div class="shortcut-card">
+                    <span class="shortcut-key">Alt + S</span>
+                    <h3>Focus Search</h3>
+                    <p class="shortcut-desc">Jump to the search box on chapter pages</p>
+                </div>
+                
+                <div class="shortcut-card">
+                    <span class="shortcut-key">Alt + H</span>
+                    <h3>Go Home</h3>
+                    <p class="shortcut-desc">Return to the home page from anywhere</p>
+                </div>
+                
+                <div class="shortcut-card">
+                    <span class="shortcut-key">Alt + N</span>
+                    <h3>Next Chapter</h3>
+                    <p class="shortcut-desc">Navigate to the next chapter</p>
+                </div>
+                
+                <div class="shortcut-card">
+                    <span class="shortcut-key">Alt + P</span>
+                    <h3>Previous Chapter</h3>
+                    <p class="shortcut-desc">Go back to the previous chapter</p>
+                </div>
+                
+                <div class="shortcut-card">
+                    <span class="shortcut-key">Escape</span>
+                    <h3>Close Chat</h3>
+                    <p class="shortcut-desc">Close the AI assistant window</p>
+                </div>
+                
+                <div class="shortcut-card">
+                    <span class="shortcut-key">Enter</span>
+                    <h3>Send Message</h3>
+                    <p class="shortcut-desc">Send your message in the AI chat</p>
+                </div>
+            </div>
+            
+            <div style="margin-top: 50px; padding: 30px; background: #f8f9fa; border-radius: 10px;">
+                <h2 style="color: #2c3e50; margin-bottom: 20px;">💡 Pro Tips</h2>
+                <ul style="line-height: 2; color: #5a6c7d;">
+                    <li>Use <strong>Alt + A</strong> frequently to ask the AI questions while reading</li>
+                    <li>Press <strong>Alt + N</strong> to quickly move through chapters</li>
+                    <li>Hit <strong>Escape</strong> to close the chat and focus on reading</li>
+                    <li>Use <strong>Alt + S</strong> to search for specific terms in chapters</li>
+                    <li>Combine shortcuts for efficient navigation</li>
+                </ul>
+            </div>
+            
+            <div style="text-align: center; margin-top: 50px;">
+                <a href="index.html" class="try-it-btn" style="display: inline-block; padding: 15px 40px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; text-decoration: none; border-radius: 30px; font-weight: bold;">
+                    🏠 Back to Home
+                </a>
+            </div>
+        </div>
+    </main>
+    
+    <script src="script.js"></script>
+</body>
+</html>

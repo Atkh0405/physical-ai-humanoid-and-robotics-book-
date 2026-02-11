@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feature Demo - Physical AI Textbook</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .demo-section {
+            margin: 40px 0;
+            padding: 30px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        .demo-video {
+            width: 100%;
+            max-width: 800px;
+            margin: 20px auto;
+            display: block;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .feature-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 30px 0;
+        }
+        
+        .showcase-item {
+            padding: 25px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .showcase-item h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .demo-gif {
+            width: 100%;
+            border-radius: 8px;
+            margin: 15px 0;
+            border: 2px solid #e0e0e0;
+        }
+        
+        .code-block {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            margin: 15px 0;
+        }
+        
+        .try-it-btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: all 0.3s;
+            margin: 10px 5px;
+        }
+        
+        .try-it-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <!-- Progress Bar -->
+    <div class="progress-container">
+        <div id="progressBar"></div>
+    </div>
+    
+    <!-- AI Chat Assistant -->
+    <button id="chatButton" onclick="toggleChat()">🤖 AI Assistant</button>
+    
+    <div id="chatWindow">
+        <div class="chat-header">
+            <span>🤖</span>
+            <span>AI Learning Assistant</span>
+        </div>
+        <div id="chatMessages"></div>
+        <div class="chat-input-area">
+            <input type="text" id="chatInput" placeholder="Try asking: 'What is Physical AI?'">
+            <button id="sendButton" onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+    
+    <nav class="sidebar">
+        <h2>Contents</h2>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="workflow.html">📊 Learning Workflow</a></li>
+            <li><a href="demo.html">🎬 Feature Demo</a></li>
+            <li><a href="chapters/chapter1.html">Chapter 1: Introduction to Physical AI</a></li>
+            <li><a href="chapters/chapter2.html">Chapter 2: Humanoid Robot Architecture</a></li>
+            <li><a href="chapters/chapter3.html">Chapter 3: Sensors and Perception</a></li>
+            <li><a href="chapters/chapter4.html">Chapter 4: Actuators and Motion Control</a></li>
+            <li><a href="chapters/chapter5.html">Chapter 5: Machine Learning for Robotics</a></li>
+            <li><a href="chapters/chapter6.html">Chapter 6: Computer Vision Systems</a></li>
+            <li><a href="chapters/chapter7.html">Chapter 7: Natural Language Processing</a></li>
+            <li><a href="chapters/chapter8.html">Chapter 8: Human-Robot Interaction</a></li>
+            <li><a href="chapters/chapter9.html">Chapter 9: Ethics and Safety</a></li>
+            <li><a href="chapters/chapter10.html">Chapter 10: Future of Humanoid Robotics</a></li>
+            <li><a href="history/timeline.html">History Timeline</a></li>
+        </ul>
+    </nav>
+    
+    <main class="content">
+        <header>
+            <h1>🎬 Interactive Feature Demo</h1>
+            <p class="subtitle">Explore the AI-Powered Learning Experience</p>
+        </header>
+        
+        <div class="demo-section">
+            <h2 style="color: #2c3e50; margin-bottom: 20px;">🤖 AI Learning Assistant</h2>
+            <p>Your personal AI tutor that understands context and provides instant help.</p>
+            
+            <div class="feature-showcase">
+                <div class="showcase-item">
+                    <h3>💬 Natural Conversations</h3>
+                    <p>Ask questions in plain English and get detailed, context-aware responses.</p>
+                    <div class="code-block">
+                        You: "What is Physical AI?"<br>
+                        AI: "Physical AI combines artificial<br>
+                        intelligence with physical embodiment,<br>
+                        enabling machines to interact with<br>
+                        the real world..."
+                    </div>
+                </div>
+                
+                <div class="showcase-item">
+                    <h3>📝 Interactive Quizzes</h3>
+                    <p>Test your knowledge with AI-generated quizzes for each chapter.</p>
+                    <div class="code-block">
+                        You: "Give me a quiz"<br>
+                        AI: "Q: What distinguishes Physical AI<br>
+                        from traditional AI?<br>
+                        A: Physical AI has sensors, actuators,<br>
+                        and can interact with physical world."
+                    </div>
+                </div>
+                
+                <div class="showcase-item">
+                    <h3>📖 Chapter Summaries</h3>
+                    <p>Get quick summaries of any chapter to review key concepts.</p>
+                    <div class="code-block">
+                        You: "Summarize this chapter"<br>
+                        AI: "🤖 Physical AI combines AI with<br>
+                        physical embodiment for real-world<br>
+                        interaction. Humanoid robots operate<br>
+                        in human environments..."
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 30px;">
+                <button class="try-it-btn" onclick="toggleChat()">🚀 Try the AI Assistant Now!</button>
+            </div>
+        </div>
+        
+        <div class="demo-section">
+            <h2 style="color: #2c3e50; margin-bottom: 20px;">📊 Progress Tracking</h2>
+            <p>Visual progress bar automatically tracks your learning journey through all 10 chapters.</p>
+            
+            <div style="background: #f8f9fa; padding: 30px; border-radius: 10px; margin: 20px 0;">
+                <h4 style="color: #5a6c7d; margin-bottom: 15px;">Your Progress</h4>
+                <div style="background: #e0e0e0; height: 30px; border-radius: 15px; overflow: hidden;">
+                    <div style="background: linear-gradient(90deg, #667eea 0%, #764ba2 100%); height: 100%; width: 40%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+                        40% Complete
+                    </div>
+                </div>
+                <p style="margin-top: 15px; color: #5a6c7d;">4 out of 10 chapters completed</p>
+            </div>
+            
+            <ul style="line-height: 2; color: #5a6c7d;">
+                <li>✅ Automatically saves your progress</li>
+                <li>✅ Visual indicator at the top of every page</li>
+                <li>✅ Tracks which chapters you've visited</li>
+                <li>✅ Persistent across browser sessions</li>
+            </ul>
+        </div>
+        
+        <div class="demo-section">
+            <h2 style="color: #2c3e50; margin-bottom: 20px;">🔍 Smart Search</h2>
+            <p>Find specific topics quickly within each chapter with highlighted results.</p>
+            
+            <div style="background: #f8f9fa; padding: 25px; border-radius: 10px; margin: 20px 0;">
+                <div style="display: flex; gap: 10px; margin-bottom: 20px;">
+                    <input type="text" placeholder="Search for 'sensors'..." style="flex: 1; padding: 12px; border: 1px solid #ddd; border-radius: 25px;">
+                    <button style="background: #667eea; color: white; border: none; padding: 12px 25px; border-radius: 25px; cursor: pointer;">🔍 Search</button>
+                </div>
+                <p style="color: #5a6c7d;">Example: Search for "sensors" in Chapter 3 to find all sensor-related content with highlighted matches.</p>
+            </div>
+        </div>
+        
+        <div class="demo-section">
+            <h2 style="color: #2c3e50; margin-bottom: 20px;">🎯 Context-Aware Intelligence</h2>
+            <p>The AI assistant knows which chapter you're reading and provides relevant, targeted help.</p>
+            
+            <div class="feature-showcase">
+                <div class="showcase-item">
+                    <h3>📍 Location Awareness</h3>
+                    <p>AI automatically detects your current chapter and tailors responses accordingly.</p>
+                </div>
+                
+                <div class="showcase-item">
+                    <h3>🧠 Smart Suggestions</h3>
+                    <p>Get chapter-specific quizzes, summaries, and explanations based on where you are.</p>
+                </div>
+                
+                <div class="showcase-item">
+                    <h3>🔗 Easy Navigation</h3>
+                    <p>Ask the AI to navigate to any chapter or show you the table of contents.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="demo-section">
+            <h2 style="color: #2c3e50; margin-bottom: 20px;">🚀 Quick Actions</h2>
+            <p>Convenient buttons for common tasks on the home page.</p>
+            
+            <div class="quick-actions" style="justify-content: center;">
+                <button class="action-btn">💬 Ask AI Assistant</button>
+                <button class="action-btn">📖 Start Reading</button>
+                <button class="action-btn">📜 View History</button>
+                <button class="action-btn">🔄 Reset Progress</button>
+            </div>
+        </div>
+        
+        <div class="demo-section" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+            <h2 style="margin-bottom: 20px;">✨ Why This Textbook is Different</h2>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; margin-top: 30px;">
+                <div style="background: rgba(255,255,255,0.1); padding: 25px; border-radius: 10px;">
+                    <h3 style="margin-bottom: 15px;">🤖 AI-Powered</h3>
+                    <p>First robotics textbook with integrated AI assistant for personalized learning.</p>
+                </div>
+                
+                <div style="background: rgba(255,255,255,0.1); padding: 25px; border-radius: 10px;">
+                    <h3 style="margin-bottom: 15px;">📱 Interactive</h3>
+                    <p>Engage with content through quizzes, search, and conversational AI.</p>
+                </div>
+                
+                <div style="background: rgba(255,255,255,0.1); padding: 25px; border-radius: 10px;">
+                    <h3 style="margin-bottom: 15px;">📊 Trackable</h3>
+                    <p>Monitor your progress and see how far you've come in your learning journey.</p>
+                </div>
+                
+                <div style="background: rgba(255,255,255,0.1); padding: 25px; border-radius: 10px;">
+                    <h3 style="margin-bottom: 15px;">🎨 Beautiful</h3>
+                    <p>Modern, responsive design that works perfectly on all devices.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div style="text-align: center; margin: 60px 0;">
+            <h2 style="color: #2c3e50; margin-bottom: 30px;">Ready to Experience It Yourself?</h2>
+            <a href="chapters/chapter1.html" class="try-it-btn">📖 Start Learning Now</a>
+            <a href="workflow.html" class="try-it-btn">📊 View Learning Workflow</a>
+            <a href="index.html" class="try-it-btn">🏠 Back to Home</a>
+        </div>
+    </main>
+    
+    <script src="script.js"></script>
+</body>
+</html>

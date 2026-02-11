@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physical AI & Humanoid Robotics Textbook</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Progress Bar -->
+    <div class="progress-container">
+        <div id="progressBar"></div>
+    </div>
+    
+    <!-- AI Chat Assistant -->
+    <button id="chatButton" onclick="toggleChat()">🤖 AI Assistant</button>
+    
+    <div id="chatWindow">
+        <div class="chat-header">
+            <span>🤖</span>
+            <span>AI Learning Assistant</span>
+        </div>
+        <div id="chatMessages"></div>
+        <div class="chat-input-area">
+            <input type="text" id="chatInput" placeholder="Ask me anything about robotics...">
+            <button id="sendButton" onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+    
+    <nav class="sidebar">
+        <h2>Contents</h2>
+        <ul>
+            <li><a href="index.html">🏠 Home</a></li>
+            <li><a href="workflow.html">📊 Learning Workflow</a></li>
+            <li><a href="demo.html">🎬 Feature Demo</a></li>
+            <li><a href="shortcuts.html">⌨️ Shortcuts</a></li>
+            <li><a href="chapters/chapter1.html">Chapter 1: Introduction to Physical AI</a></li>
+            <li><a href="chapters/chapter2.html">Chapter 2: Humanoid Robot Architecture</a></li>
+            <li><a href="chapters/chapter3.html">Chapter 3: Sensors and Perception</a></li>
+            <li><a href="chapters/chapter4.html">Chapter 4: Actuators and Motion Control</a></li>
+            <li><a href="chapters/chapter5.html">Chapter 5: Machine Learning for Robotics</a></li>
+            <li><a href="chapters/chapter6.html">Chapter 6: Computer Vision Systems</a></li>
+            <li><a href="chapters/chapter7.html">Chapter 7: Natural Language Processing</a></li>
+            <li><a href="chapters/chapter8.html">Chapter 8: Human-Robot Interaction</a></li>
+            <li><a href="chapters/chapter9.html">Chapter 9: Ethics and Safety</a></li>
+            <li><a href="chapters/chapter10.html">Chapter 10: Future of Humanoid Robotics</a></li>
+            <li><a href="history/timeline.html">📜 History Timeline</a></li>
+        </ul>
+    </nav>
+    
+    <main class="content">
+        <header class="hero-header">
+            <h1 class="fade-in-up">Physical AI & Humanoid Robotics</h1>
+            <p class="subtitle fade-in-up delay-1">A Comprehensive Interactive Textbook</p>
+        </header>
+        
+        <!-- Stats Cards -->
+        <div class="stats-grid fade-in-up delay-2">
+            <div class="stat-card">
+                <div class="stat-number">10</div>
+                <div class="stat-label">Chapters</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">🤖</div>
+                <div class="stat-label">AI Assistant</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">15+</div>
+                <div class="stat-label">Features</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">∞</div>
+                <div class="stat-label">Learning</div>
+            </div>
+        </div>
+        
+        <section class="intro fade-in-up delay-3">
+            <h2>Welcome to the Future of Learning</h2>
+            <p>This comprehensive textbook explores the fascinating world of Physical AI and Humanoid Robotics, covering everything from fundamental concepts to cutting-edge developments. Enhanced with AI-powered features for an interactive learning experience!</p>
+            
+            <div class="features">
+                <div class="feature-card hover-lift">
+                    <div class="feature-icon">📚</div>
+                    <h3>10 Comprehensive Chapters</h3>
+                    <p>Deep dive into all aspects of humanoid robotics and physical AI systems</p>
+                </div>
+                <div class="feature-card hover-lift">
+                    <div class="feature-icon">🤖</div>
+                    <h3>AI Learning Assistant</h3>
+                    <p>Interactive chatbot provides instant answers, quizzes, and personalized guidance</p>
+                </div>
+                <div class="feature-card hover-lift">
+                    <div class="feature-icon">📊</div>
+                    <h3>Progress Tracking</h3>
+                    <p>Visual progress bar automatically tracks your learning journey</p>
+                </div>
+                <div class="feature-card hover-lift">
+                    <div class="feature-icon">🔍</div>
+                    <h3>Smart Search</h3>
+                    <p>Find any topic instantly with intelligent search and highlighted results</p>
+                </div>
+                <div class="feature-card hover-lift">
+                    <div class="feature-icon">⌨️</div>
+                    <h3>Keyboard Shortcuts</h3>
+                    <p>Navigate faster with intuitive keyboard commands</p>
+                </div>
+                <div class="feature-card hover-lift">
+                    <div class="feature-icon">🔬</div>
+                    <h3>Latest Research</h3>
+                    <p>Up-to-date information on current developments and future trends</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Quick Actions -->
+        <section class="quick-actions-section fade-in-up delay-4">
+            <h2>⚡ Quick Actions</h2>
+            <div class="quick-actions">
+                <button class="action-btn pulse-btn" onclick="toggleChat()">💬 Ask AI Assistant</button>
+                <button class="action-btn" onclick="window.location.href='demo.html'">🎬 View Demo</button>
+                <button class="action-btn" onclick="window.location.href='chapters/chapter1.html'">📖 Start Reading</button>
+                <button class="action-btn" onclick="window.location.href='workflow.html'">📊 Learning Path</button>
+                <button class="action-btn" onclick="window.location.href='history/timeline.html'">📜 View History</button>
+                <button class="action-btn" onclick="localStorage.clear(); alert('Progress reset!')">🔄 Reset Progress</button>
+            </div>
+        </section>
+        
+        <section class="chapters-overview fade-in-up delay-5">
+            <h2>Explore All Chapters</h2>
+            <div class="chapter-grid">
+                <a href="chapters/chapter1.html" class="chapter-link hover-scale">
+                    <h3>Chapter 1</h3>
+                    <p>Introduction to Physical AI</p>
+                </a>
+                <a href="chapters/chapter2.html" class="chapter-link hover-scale">
+                    <h3>Chapter 2</h3>
+                    <p>Humanoid Robot Architecture</p>
+                </a>
+                <a href="chapters/chapter3.html" class="chapter-link hover-scale">
+                    <h3>Chapter 3</h3>
+                    <p>Sensors and Perception</p>
+                </a>
+                <a href="chapters/chapter4.html" class="chapter-link hover-scale">
+                    <h3>Chapter 4</h3>
+                    <p>Actuators and Motion Control</p>
+                </a>
+                <a href="chapters/chapter5.html" class="chapter-link hover-scale">
+                    <h3>Chapter 5</h3>
+                    <p>Machine Learning for Robotics</p>
+                </a>
+                <a href="chapters/chapter6.html" class="chapter-link hover-scale">
+                    <h3>Chapter 6</h3>
+                    <p>Computer Vision Systems</p>
+                </a>
+                <a href="chapters/chapter7.html" class="chapter-link hover-scale">
+                    <h3>Chapter 7</h3>
+                    <p>Natural Language Processing</p>
+                </a>
+                <a href="chapters/chapter8.html" class="chapter-link hover-scale">
+                    <h3>Chapter 8</h3>
+                    <p>Human-Robot Interaction</p>
+                </a>
+                <a href="chapters/chapter9.html" class="chapter-link hover-scale">
+                    <h3>Chapter 9</h3>
+                    <p>Ethics and Safety</p>
+                </a>
+                <a href="chapters/chapter10.html" class="chapter-link hover-scale">
+                    <h3>Chapter 10</h3>
+                    <p>Future of Humanoid Robotics</p>
+                </a>
+            </div>
+        </section>
+    </main>
+    
+    <script src="script.js"></script>
+</body>
+</html>

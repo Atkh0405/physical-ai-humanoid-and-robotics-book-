@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Workflow - Physical AI Textbook</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(102, 126, 234, 0.5); }
+            50% { box-shadow: 0 0 40px rgba(102, 126, 234, 0.8); }
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 80px 40px;
+            text-align: center;
+            color: white;
+            border-radius: 20px;
+            margin-bottom: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-section::before {
+            content: '🤖';
+            position: absolute;
+            font-size: 200px;
+            opacity: 0.1;
+            top: -50px;
+            right: -50px;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .hero-section h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            animation: slideInLeft 1s ease;
+        }
+        
+        .hero-section p {
+            font-size: 1.5em;
+            opacity: 0.95;
+            animation: slideInRight 1s ease;
+        }
+        
+        .workflow-diagram {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 40px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+        
+        .workflow-step {
+            display: flex;
+            align-items: center;
+            margin: 40px 0;
+            padding: 30px;
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            border-radius: 15px;
+            border-left: 6px solid #667eea;
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            position: relative;
+            overflow: hidden;
+            animation: slideInLeft 0.8s ease;
+        }
+        
+        .workflow-step::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+            transition: width 0.4s ease;
+            z-index: 0;
+        }
+        
+        .workflow-step:hover::before {
+            width: 100%;
+        }
+        
+        .workflow-step:hover {
+            transform: translateX(15px) scale(1.02);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+            border-left-width: 8px;
+        }
+        
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            font-weight: bold;
+            margin-right: 30px;
+            flex-shrink: 0;
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+            transition: all 0.3s ease;
+        }
+        
+        .workflow-step:hover .step-number {
+            animation: pulse 1s ease infinite;
+            box-shadow: 0 8px 30px rgba(102, 126, 234, 0.6);
+        }
+        
+        .step-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .step-content h3 {
+            color: #2c3e50;
+            margin-bottom: 12px;
+            font-size: 1.5em;
+        }
+        
+        .step-content p {
+            color: #5a6c7d;
+            line-height: 1.8;
+            font-size: 1.1em;
+        }
+        
+        .arrow {
+            text-align: center;
+            font-size: 40px;
+            color: #667eea;
+            margin: 20px 0;
+            animation: float 2s ease-in-out infinite;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+        
+        .feature-box {
+            padding: 35px;
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            position: relative;
+            overflow: hidden;
+            border: 2px solid transparent;
+        }
+        
+        .feature-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        
+        .feature-box:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.3);
+            border-color: #667eea;
+        }
+        
+        .feature-box:hover::before {
+            opacity: 1;
+        }
+        
+        .feature-icon {
+            font-size: 64px;
+            margin-bottom: 20px;
+            display: inline-block;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .feature-box:hover .feature-icon {
+            transform: scale(1.2) rotate(5deg);
+        }
+        
+        .feature-box h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .feature-box p {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .cta-section {
+            text-align: center;
+            margin: 80px 0;
+            padding: 60px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 25px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            animation: glow 3s ease-in-out infinite;
+        }
+        
+        .cta-section::before {
+            content: '✨';
+            position: absolute;
+            font-size: 150px;
+            opacity: 0.1;
+            top: -30px;
+            left: -30px;
+            animation: float 5s ease-in-out infinite;
+        }
+        
+        .cta-section::after {
+            content: '🚀';
+            position: absolute;
+            font-size: 150px;
+            opacity: 0.1;
+            bottom: -30px;
+            right: -30px;
+            animation: float 5s ease-in-out infinite reverse;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 18px 45px;
+            background: white;
+            color: #667eea;
+            text-decoration: none;
+            border-radius: 35px;
+            font-weight: bold;
+            font-size: 18px;
+            margin: 15px;
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .cta-button:hover {
+            transform: scale(1.1) translateY(-5px);
+            box-shadow: 0 10px 35px rgba(255,255,255,0.4);
+            background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%);
+        }
+        
+        .stats-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+        
+        .stat-card {
+            text-align: center;
+            padding: 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 20px;
+            color: white;
+            transition: all 0.3s ease;
+            animation: slideInLeft 1s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.5);
+        }
+        
+        .stat-number {
+            font-size: 3em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <!-- Progress Bar -->
+    <div class="progress-container">
+        <div id="progressBar"></div>
+    </div>
+    
+    <!-- AI Chat Assistant -->
+    <button id="chatButton" onclick="toggleChat()">🤖 AI Assistant</button>
+    
+    <div id="chatWindow">
+        <div class="chat-header">
+            <span>🤖</span>
+            <span>AI Learning Assistant</span>
+        </div>
+        <div id="chatMessages"></div>
+        <div class="chat-input-area">
+            <input type="text" id="chatInput" placeholder="Ask me anything about robotics...">
+            <button id="sendButton" onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+    
+    <nav class="sidebar">
+        <h2>Contents</h2>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="workflow.html">📊 Learning Workflow</a></li>
+            <li><a href="chapters/chapter1.html">Chapter 1: Introduction to Physical AI</a></li>
+            <li><a href="chapters/chapter2.html">Chapter 2: Humanoid Robot Architecture</a></li>
+            <li><a href="chapters/chapter3.html">Chapter 3: Sensors and Perception</a></li>
+            <li><a href="chapters/chapter4.html">Chapter 4: Actuators and Motion Control</a></li>
+            <li><a href="chapters/chapter5.html">Chapter 5: Machine Learning for Robotics</a></li>
+            <li><a href="chapters/chapter6.html">Chapter 6: Computer Vision Systems</a></li>
+            <li><a href="chapters/chapter7.html">Chapter 7: Natural Language Processing</a></li>
+            <li><a href="chapters/chapter8.html">Chapter 8: Human-Robot Interaction</a></li>
+            <li><a href="chapters/chapter9.html">Chapter 9: Ethics and Safety</a></li>
+            <li><a href="chapters/chapter10.html">Chapter 10: Future of Humanoid Robotics</a></li>
+            <li><a href="history/timeline.html">History Timeline</a></li>
+        </ul>
+    </nav>
+    
+    <main class="content">
+        <div class="hero-section">
+            <h1>📊 Enhanced Learning Workflow</h1>
+            <p class="subtitle">Your AI-Powered Learning Journey Awaits</p>
+        </div>
+        
+        <!-- Stats Section -->
+        <div class="stats-section">
+            <div class="stat-card">
+                <div class="stat-number">10</div>
+                <div class="stat-label">Comprehensive Chapters</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">15+</div>
+                <div class="stat-label">Interactive Features</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">AI-Powered Learning</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">∞</div>
+                <div class="stat-label">Knowledge Potential</div>
+            </div>
+        </div>
+        
+        <div class="workflow-diagram">
+            <h2 style="text-align: center; color: #2c3e50; margin-bottom: 50px; font-size: 2.5em;">🎯 Your Learning Path</h2>
+            
+            <div class="workflow-step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h3>🎯 Start Your Journey</h3>
+                    <p>Begin at the home page and explore the chapter overview. Use the AI assistant to ask questions about what you'll learn.</p>
+                </div>
+            </div>
+            
+            <div class="arrow">↓</div>
+            
+            <div class="workflow-step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h3>📖 Read Chapters Sequentially</h3>
+                    <p>Progress through chapters 1-10 in order. Each chapter builds on previous knowledge. Your progress is automatically tracked!</p>
+                </div>
+            </div>
+            
+            <div class="arrow">↓</div>
+            
+            <div class="workflow-step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h3>🤖 Interact with AI Assistant</h3>
+                    <p>Click the AI Assistant button anytime to ask questions, get summaries, or request quizzes on the current chapter.</p>
+                </div>
+            </div>
+            
+            <div class="arrow">↓</div>
+            
+            <div class="workflow-step">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                    <h3>🔍 Use Search Feature</h3>
+                    <p>Search for specific topics within each chapter using the search bar at the top of every page.</p>
+                </div>
+            </div>
+            
+            <div class="arrow">↓</div>
+            
+            <div class="workflow-step">
+                <div class="step-number">5</div>
+                <div class="step-content">
+                    <h3>📝 Test Your Knowledge</h3>
+                    <p>Ask the AI assistant for quizzes to test your understanding. Get instant feedback and explanations.</p>
+                </div>
+            </div>
+            
+            <div class="arrow">↓</div>
+            
+            <div class="workflow-step">
+                <div class="step-number">6</div>
+                <div class="step-content">
+                    <h3>📜 Explore History</h3>
+                    <p>Visit the History Timeline to understand the evolution of humanoid robotics from ancient times to today.</p>
+                </div>
+            </div>
+            
+            <div class="arrow">↓</div>
+            
+            <div class="workflow-step">
+                <div class="step-number">7</div>
+                <div class="step-content">
+                    <h3>🎓 Complete Your Learning</h3>
+                    <p>Finish all 10 chapters and review key concepts. Your progress bar will show 100% completion!</p>
+                </div>
+            </div>
+        </div>
+        
+        <h2 style="text-align: center; color: #2c3e50; margin: 80px 0 50px 0; font-size: 2.5em;">🚀 Powerful Features</h2>
+        
+        <div class="features-grid">
+            <div class="feature-box">
+                <div class="feature-icon">🤖</div>
+                <h3>AI Learning Assistant</h3>
+                <p>Get instant answers, explanations, and guidance. The AI understands context and provides chapter-specific help.</p>
+            </div>
+            
+            <div class="feature-box">
+                <div class="feature-icon">📊</div>
+                <h3>Progress Tracking</h3>
+                <p>Visual progress bar shows your learning journey. Track which chapters you've completed automatically.</p>
+            </div>
+            
+            <div class="feature-box">
+                <div class="feature-icon">🔍</div>
+                <h3>Smart Search</h3>
+                <p>Find specific topics quickly with in-page search. Results are highlighted for easy navigation.</p>
+            </div>
+            
+            <div class="feature-box">
+                <div class="feature-icon">📝</div>
+                <h3>Interactive Quizzes</h3>
+                <p>Request quizzes from the AI assistant to test your knowledge on any chapter.</p>
+            </div>
+            
+            <div class="feature-box">
+                <div class="feature-icon">💡</div>
+                <h3>Concept Summaries</h3>
+                <p>Get quick summaries of any chapter by asking the AI assistant.</p>
+            </div>
+            
+            <div class="feature-box">
+                <div class="feature-icon">🎯</div>
+                <h3>Context-Aware Help</h3>
+                <p>The AI knows which chapter you're reading and provides relevant assistance.</p>
+            </div>
+        </div>
+        
+        <div class="cta-section">
+            <h2 style="margin-bottom: 25px; font-size: 2.5em;">Ready to Start Learning?</h2>
+            <p style="font-size: 1.3em; margin-bottom: 40px; opacity: 0.95;">Begin your journey into Physical AI and Humanoid Robotics today!</p>
+            <a href="chapters/chapter1.html" class="cta-button">📖 Start Chapter 1</a>
+            <a href="demo.html" class="cta-button">🎬 View Demo</a>
+            <a href="index.html" class="cta-button">🏠 Back to Home</a>
+        </div>
+        
+        <div style="margin-top: 80px; padding: 40px; background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border-radius: 20px; box-shadow: 0 5px 20px rgba(0,0,0,0.1);">
+            <h2 style="color: #2c3e50; margin-bottom: 30px; text-align: center; font-size: 2em;">💡 Pro Learning Tips</h2>
+            <ul style="line-height: 2.5; color: #5a6c7d; font-size: 1.1em; max-width: 800px; margin: 0 auto;">
+                <li><strong>🤖 Use the AI Assistant:</strong> Don't hesitate to ask questions - it's there to help you learn!</li>
+                <li><strong>📝 Take Notes:</strong> Keep a notebook handy to jot down important concepts</li>
+                <li><strong>🎯 Practice Regularly:</strong> Request quizzes frequently to reinforce learning</li>
+                <li><strong>🔗 Explore Links:</strong> Use the sidebar to jump between related chapters</li>
+                <li><strong>📜 Review History:</strong> Understanding the past helps predict the future</li>
+                <li><strong>🔍 Search Often:</strong> Use the search feature to quickly find specific topics</li>
+                <li><strong>⌨️ Master Shortcuts:</strong> Use keyboard shortcuts for faster navigation</li>
+                <li><strong>📊 Track Progress:</strong> Watch your completion percentage grow!</li>
+            </ul>
+        </div>
+    </main>
+    
+    <script src="script.js"></script>
+</body>
+</html>

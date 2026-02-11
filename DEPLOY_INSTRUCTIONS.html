@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deployment Instructions</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        .container {
+            background: white;
+            color: #2c3e50;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        }
+        h1 {
+            color: #667eea;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 15px;
+        }
+        h2 {
+            color: #764ba2;
+            margin-top: 30px;
+        }
+        .step {
+            background: #f8f9fa;
+            padding: 20px;
+            margin: 15px 0;
+            border-left: 4px solid #667eea;
+            border-radius: 5px;
+        }
+        .command {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+            margin: 10px 0;
+        }
+        .button {
+            display: inline-block;
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            margin: 10px 5px;
+            font-weight: bold;
+        }
+        .button:hover {
+            opacity: 0.9;
+        }
+        .warning {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+            color: #856404;
+        }
+        .success {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+            color: #155724;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 Deployment Instructions</h1>
+        <p><strong>Project:</strong> Physical AI & Humanoid Robotics Textbook</p>
+        <p><strong>Author:</strong> Atif Khan (Atkh0405)</p>
+        <p><strong>Email:</strong> atifkhan14670@gmail.com</p>
+
+        <h2>📦 Step 1: Install Git</h2>
+        <div class="step">
+            <p><strong>1.1</strong> Download Git for Windows:</p>
+            <a href="https://git-scm.com/download/win" class="button" target="_blank">Download Git</a>
+            <p><strong>1.2</strong> Install with default settings</p>
+            <p><strong>1.3</strong> Restart PowerShell after installation</p>
+        </div>
+
+        <h2>🔧 Step 2: Configure Git</h2>
+        <div class="step">
+            <p>Open PowerShell in your project folder and run:</p>
+            <div class="command">
+git config --global user.name "Atkh0405"<br>
+git config --global user.email "atifkhan14670@gmail.com"
+            </div>
+        </div>
+
+        <h2>📁 Step 3: Create GitHub Repository</h2>
+        <div class="step">
+            <p><strong>3.1</strong> Go to GitHub:</p>
+            <a href="https://github.com/new" class="button" target="_blank">Create New Repository</a>
+            <p><strong>3.2</strong> Fill in details:</p>
+            <ul>
+                <li>Repository name: <code>physical-ai-robotics-textbook</code></li>
+                <li>Description: Interactive AI-powered textbook for robotics</li>
+                <li>Visibility: Public</li>
+                <li>Don't initialize with README</li>
+            </ul>
+            <p><strong>3.3</strong> Click "Create repository"</p>
+        </div>
+
+        <h2>⬆️ Step 4: Push to GitHub</h2>
+        <div class="step">
+            <p>In PowerShell, run these commands one by one:</p>
+            <div class="command">
+cd C:\Users\sss\Desktop\hacathon-1<br><br>
+git init<br><br>
+git add .<br><br>
+git commit -m "Initial commit: Physical AI Textbook"<br><br>
+git remote add origin https://github.com/Atkh0405/physical-ai-robotics-textbook.git<br><br>
+git branch -M main<br><br>
+git push -u origin main
+            </div>
+            <div class="warning">
+                <strong>⚠️ Note:</strong> You may be asked to authenticate. Use your GitHub username and password (or personal access token).
+            </div>
+        </div>
+
+        <h2>🌐 Step 5: Deploy to Vercel</h2>
+        <div class="step">
+            <p><strong>5.1</strong> Go to Vercel:</p>
+            <a href="https://vercel.com/signup" class="button" target="_blank">Sign Up / Login to Vercel</a>
+            <p><strong>5.2</strong> Sign in with your GitHub account</p>
+            <p><strong>5.3</strong> Click "New Project"</p>
+            <p><strong>5.4</strong> Import your repository:</p>
+            <ul>
+                <li>Search for: <code>physical-ai-robotics-textbook</code></li>
+                <li>Click "Import"</li>
+            </ul>
+            <p><strong>5.5</strong> Configure project:</p>
+            <ul>
+                <li>Project Name: <code>physical-ai-robotics-textbook</code></li>
+                <li>Framework Preset: <code>Other</code></li>
+                <li>Root Directory: <code>./</code></li>
+                <li>Build Command: (leave empty)</li>
+                <li>Output Directory: (leave empty)</li>
+            </ul>
+            <p><strong>5.6</strong> Click "Deploy"</p>
+            <p><strong>5.7</strong> Wait 1-2 minutes for deployment</p>
+        </div>
+
+        <div class="success">
+            <h3>✅ Success!</h3>
+            <p>Your textbook will be live at:</p>
+            <p><strong>https://physical-ai-robotics-textbook.vercel.app</strong></p>
+            <p>(or a similar URL provided by Vercel)</p>
+        </div>
+
+        <h2>📋 Verification Checklist</h2>
+        <div class="step">
+            <p>After deployment, verify these work:</p>
+            <ul>
+                <li>✅ Welcome page loads</li>
+                <li>✅ Home page with stats</li>
+                <li>✅ All 10 chapters accessible</li>
+                <li>✅ AI Assistant button appears</li>
+                <li>✅ Search functionality</li>
+                <li>✅ Progress tracking</li>
+                <li>✅ Keyboard shortcuts</li>
+                <li>✅ Mobile responsive</li>
+            </ul>
+        </div>
+
+        <h2>🆘 Need Help?</h2>
+        <div class="step">
+            <p>If you encounter issues:</p>
+            <ul>
+                <li>Check <code>QUICK_DEPLOY_GUIDE.md</code> for detailed instructions</li>
+                <li>Review <code>DEPLOYMENT.md</code> for troubleshooting</li>
+                <li>Email: atifkhan14670@gmail.com</li>
+            </ul>
+        </div>
+
+        <div style="text-align: center; margin-top: 40px;">
+            <a href="index.html" class="button">🏠 Back to Textbook</a>
+            <a href="QUICK_DEPLOY_GUIDE.md" class="button">📖 Read Full Guide</a>
+        </div>
+    </div>
+</body>
+</html>
